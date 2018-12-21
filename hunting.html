@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous">
+        </script>
+    <title></title>
+    <script>
+        $(document).ready(function () {
+            $('#my_button').click(function () {
+                var username = $('#username_input').val()
+                console.log("button was clicked");
+                $.get("https://api.github.com/users/" + username, function (data) {
+                    console.log(data);
+                    $('#title').html(data.name);
+                    $('#logo').html(" <img src =' " + data.avatar_url + "'>");
+                })
+            })
+        })
+    </script>
+
+</head>
+</html>
